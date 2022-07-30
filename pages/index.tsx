@@ -1,15 +1,23 @@
 import type { NextPage } from 'next'
+import { useState } from 'react'
 import styled from 'styled-components'
-import TopArea from '../src/components/TopArea'
+import Header from '../src/components/Header'
 import { ThemeContextProvider } from '../src/contexts/ThemeContext'
+import { UserProps } from '../src/types'
 
 
 const Home: NextPage = () => {
+
+  const [user, setUser] = useState<UserProps | null>(null)
+
+  function setUserData (user: UserProps | null): void {
+    setUser(user)
+  }
+
   return (
     <ThemeContextProvider>
       <Container>
-        <h1>testeeeew</h1>
-        <TopArea/>
+        <Header setUser={setUserData} />
       </Container>
     </ThemeContextProvider>
   )
