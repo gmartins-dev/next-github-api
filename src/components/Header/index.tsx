@@ -12,6 +12,10 @@ const TopArea = ({setUser}: TopAreaProps) => {
   const usernameRef = useRef<HTMLInputElement>(null);
   const [inputUser] = useState("octocat");
 
+  function hadleSubmit(){
+
+  }
+
   return (
     <C.Container>
       <C.ThemeArea>
@@ -41,6 +45,29 @@ const TopArea = ({setUser}: TopAreaProps) => {
           )}
         </C.ChangeThemeBtn>
       </C.ThemeArea>
+      <C.InputArea
+        onSubmit={(e) => {
+          e.preventDefault()
+          hadleSubmit()
+        }}
+      >
+        <C.InputLabel>
+          <img src="/assets/icon-search.svg"  alt="search .."/>
+        </C.InputLabel>
+
+        <C.Input
+          ref={usernameRef}
+          name="username"
+          id="username"
+          type="text"
+          placeholder="Search username ..."
+        />
+        {empty && <C.Warn>Enter User</C.Warn>}
+        {notFound && <C.Warn>Not Found</C.Warn>}
+
+        <C.SubmitBtn type="submit">Search</C.SubmitBtn>
+      </C.InputArea>
+
     </C.Container>
   );
 }
