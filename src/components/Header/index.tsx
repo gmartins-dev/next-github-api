@@ -22,6 +22,16 @@ const Header = ({setUser}: HeaderProps) => {
       return;
     }
   }
+  async function fetchUser(username: string) {
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    const data = await response.json();
+
+    if (response.status != 200) {
+      setNotFound(true);
+      setUser(null);
+      return;
+    }
+  }
 
   return (
     <C.Container>
