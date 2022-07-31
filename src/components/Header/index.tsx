@@ -38,11 +38,32 @@ const Header = ({setUser}: HeaderProps) => {
 
     setNotFound(false);
     console.log(data);
+
+    const user: UserProps = {
+      pfp: data.avatar_url,
+      name: data.name,
+      joinedAt: joinedDate(data.created_at),
+      username: data.login,
+      bio: data.bio,
+      repos: data.public_repos,
+      followers: data.followers,
+      following: data.following,
+      links: {
+        location: data.location,
+        twitter: data.twitter_username,
+        company: data.company,
+        blog: data.blog,
+      },
+    };
+    console.log(data);
+
+    setUser(user);
   }
 
   // useEffect(()=> {
   //   fetchUser(inputUser)
   // },[inputUser])
+
 
   return (
     <C.Container>
