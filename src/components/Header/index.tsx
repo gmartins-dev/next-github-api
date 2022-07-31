@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect, useRef } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import {HeaderProps, UserProps} from '../../types'
+import { joinedDate } from "../../utils/formatter";
 import * as C from './styles';
 
 
@@ -21,6 +22,9 @@ const Header = ({setUser}: HeaderProps) => {
       setUser(null);
       return;
     }
+
+    setEmpty(false)
+    fetchUser(usernameRef.current.value)
   }
   async function fetchUser(username: string) {
     const response = await fetch(`https://api.github.com/users/${username}`);
@@ -31,7 +35,14 @@ const Header = ({setUser}: HeaderProps) => {
       setUser(null);
       return;
     }
+
+    setNotFound(false);
+    console.log(data);
   }
+
+  // useEffect(()=> {
+  //   fetchUser(inputUser)
+  // },[inputUser])
 
   return (
     <C.Container>
