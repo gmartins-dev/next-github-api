@@ -1,9 +1,28 @@
-import React from 'react'
 
-const StartArea = () => {
-  return (
-    <div>index</div>
-  )
+
+interface StastsAreaProps {
+  repos: string;
+  followers: string;
+  following: string;
 }
 
-export default StartArea
+export const StartArea = ({ repos, followers, following }: StastsAreaProps) => {
+  return (
+    <Container>
+      <Data>
+        <span>Repos</span>
+        <strong>{repos}</strong>
+      </Data>
+
+      <Data>
+        <span>Followers</span>
+        <strong>{followers}</strong>
+      </Data>
+
+      <Data>
+      <span>Following</span>
+        <strong>{following}</strong>
+      </Data>
+    </Container>
+  );
+};
