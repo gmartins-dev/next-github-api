@@ -1,10 +1,10 @@
 import { useContext, useState, useEffect, useRef } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
-import {TopAreaProps, UserProps} from '../../types'
+import {HeaderProps, UserProps} from '../../types'
 import * as C from './styles';
 
 
-const TopArea = ({setUser}: TopAreaProps) => {
+const Header = ({setUser}: HeaderProps) => {
 
   const { changeTheme, lightMode } = useContext(ThemeContext);
   const [empty, setEmpty] = useState<boolean>(false);
@@ -21,6 +21,7 @@ const TopArea = ({setUser}: TopAreaProps) => {
       setUser(null);
       return;
     }
+  }
 
   return (
     <C.Container>
@@ -78,4 +79,4 @@ const TopArea = ({setUser}: TopAreaProps) => {
   );
 }
 
-export default TopArea
+export default Header

@@ -15,7 +15,7 @@ export interface UserProps {
   };
 }
 
-export interface TopAreaProps {
+export interface HeaderProps {
   setUser: (user: UserProps | null) => void;
 }
 
