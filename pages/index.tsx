@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { useState } from 'react'
 import styled from 'styled-components'
 import Header from '../src/components/Header'
+import { UserData } from '../src/components/UserData'
 import { UserProps } from '../src/types'
 
 
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
   return (
       <Container>
         <Header setUser={setUserData} />
+        {user && <UserData user={user} />}
       </Container>
   )
 }
