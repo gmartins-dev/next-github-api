@@ -1,7 +1,7 @@
 import Header from "../Header"
 import { TopArea } from "../TopArea"
 import LinksArea from "../LinksArea"
-import StartArea from "../StartArea"
+import {StartArea} from "../StartArea"
 import { UserDataProps } from "../../types"
 import * as C from './styles';
 

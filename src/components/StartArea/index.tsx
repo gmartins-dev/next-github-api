@@ -1,4 +1,4 @@
-
+import * as C from './styles';
 
 interface StastsAreaProps {
   repos: string;
@@ -8,21 +8,21 @@ interface StastsAreaProps {
 
 export const StartArea = ({ repos, followers, following }: StastsAreaProps) => {
   return (
-    <Container>
-      <Data>
+    <C.Container>
+      <C.Data>
         <span>Repos</span>
         <strong>{repos}</strong>
-      </Data>
+      </C.Data>
 
-      <Data>
+      <C.Data>
         <span>Followers</span>
         <strong>{followers}</strong>
-      </Data>
+      </C.Data>
 
-      <Data>
+      <C.Data>
       <span>Following</span>
         <strong>{following}</strong>
-      </Data>
-    </Container>
+      </C.Data>
+    </C.Container>
   );
 };
