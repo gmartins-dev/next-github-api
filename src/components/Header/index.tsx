@@ -12,9 +12,15 @@ const TopArea = ({setUser}: TopAreaProps) => {
   const usernameRef = useRef<HTMLInputElement>(null);
   const [inputUser] = useState("octocat");
 
-  function hadleSubmit(){
-
-  }
+  function hadleSubmit() {
+    if (
+      usernameRef.current?.value.trim() === "" ||
+      usernameRef.current?.value === undefined
+    ) {
+      setEmpty(true);
+      setUser(null);
+      return;
+    }
 
   return (
     <C.Container>
