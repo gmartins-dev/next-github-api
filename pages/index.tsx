@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import { useState } from 'react'
 import styled from 'styled-components'
 import Header from '../src/components/Header'
-import { ThemeContextProvider } from '../src/contexts/ThemeContext'
 import { UserProps } from '../src/types'
 
 
@@ -15,11 +14,9 @@ const Home: NextPage = () => {
   }
 
   return (
-    <ThemeContextProvider>
       <Container>
         <Header setUser={setUserData} />
       </Container>
-    </ThemeContextProvider>
   )
 }
 
