@@ -12,19 +12,19 @@ export const ThemeContextProvider = (props: any) => {
   const [lightMode, setLightMode] = useState<boolean>(false);
   const darkTheme: object = {
     colors: {
-      background: "#141D2F",
+      background: "#0D1117",
       themeBtn: "#fff",
-      card: "#1E2A47",
+      card: "#161B22",
       textNorm: "#fff",
       textBolded: "#FFF",
     },
   };
   const lightTheme: object = {
     colors: {
-      background: "#F6F8FF",
-      themeBtn: "#4B6A9B",
+      background: "#F3F2EF",
+      themeBtn: "#0D1117",
       card: "#FEFEFE",
-      textNorm: "#697C9A",
+      textNorm: "#161B22",
       textBolded: "#2B3442",
     },
   };

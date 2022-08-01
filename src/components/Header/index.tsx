@@ -2,7 +2,6 @@ import { useContext, useState, useEffect, useRef } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import {HeaderProps, UserProps} from '../../types'
 import { joinedDate } from "../../utils/formatter";
-import api from "../../services/api";
 import * as C from './styles';
 
 
@@ -28,9 +27,8 @@ const Header = ({setUser}: HeaderProps) => {
     fetchUser(usernameRef.current.value)
   }
   async function fetchUser(username: string) {
-    const response = await api.get(`${username}`);
-    const data = response.data
-
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    const data = await response.json();
 
     if (response.status != 200) {
       setNotFound(true);
@@ -39,7 +37,6 @@ const Header = ({setUser}: HeaderProps) => {
     }
 
     setNotFound(false);
-    console.log(data);
 
     const user: UserProps = {
       pfp: data.avatar_url,
@@ -62,9 +59,9 @@ const Header = ({setUser}: HeaderProps) => {
     setUser(user);
   }
 
-  // useEffect(()=> {
-  //   fetchUser(inputUser)
-  // },[inputUser])
+  useEffect(()=> {
+    fetchUser(inputUser)
+  },[inputUser])
 
 
   return (
