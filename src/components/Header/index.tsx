@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useContext, useState, useEffect, useRef } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import {HeaderProps, UserProps} from '../../types'
@@ -11,7 +12,7 @@ const Header = ({setUser}: HeaderProps) => {
   const [empty, setEmpty] = useState<boolean>(false);
   const [notFound, setNotFound] = useState<boolean>(false);
   const usernameRef = useRef<HTMLInputElement>(null);
-  const [inputUser] = useState("octocat");
+  const [inputUser] = useState("guilhermemm-dev");
 
   function hadleSubmit() {
     if (
@@ -83,12 +84,12 @@ const Header = ({setUser}: HeaderProps) => {
           {lightMode ? (
             <>
               DARK
-              <img src="/assets/icon-moon.svg" alt="dark mode" />
+              <img src="/assets/icon-moon.svg" alt="dark-mode-buttom"/>
             </>
           ) : (
             <>
               LIGHT
-              <img src="/assets/icon-sun.svg" alt="light mode" />
+              <img src="/assets/icon-sun.svg" alt="light-mode-buttom"/>
             </>
           )}
         </C.ChangeThemeBtn>
@@ -100,7 +101,7 @@ const Header = ({setUser}: HeaderProps) => {
         }}
       >
         <C.InputLabel>
-          <img src="/assets/icon-search.svg"  alt="search .."/>
+          <img src="/assets/icon-search.svg"  alt="search-buttom"/>
         </C.InputLabel>
 
         <C.Input
